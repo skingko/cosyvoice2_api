@@ -1,0 +1,46 @@
+# CosyVoice2 TTS Service Dependencies
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+websockets==12.0
+
+# HTTP and Network
+httpx==0.25.0
+aiohttp==3.9.0
+aiofiles==23.2.0
+requests==2.31.0
+
+# Audio Processing
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+soundfile>=0.12.0
+librosa>=0.10.0
+
+# Data Processing
+pydantic>=2.0.0
+python-multipart==0.0.6
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml>=6.0
+click>=8.0.0
+
+# Performance and Monitoring
+psutil>=5.9.0
+prometheus-client>=0.17.0
+
+# Optional Audio Format Support
+pydub>=0.25.0
+
+# Development and Testing (optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# GPU Support (optional, install based on system)
+# torch-audio # for GPU acceleration
+# nvidia-ml-py3 # for NVIDIA GPU monitoring
