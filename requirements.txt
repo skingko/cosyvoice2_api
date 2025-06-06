@@ -1,46 +1,80 @@
-# CosyVoice2 TTS Service Dependencies
+# CosyVoice2 TTS API Dependencies
+# ====================================
+# 支持 Python 3.8-3.11，兼容 Windows/macOS/Linux
 
-# Core Framework
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-websockets==12.0
+# Core Web Framework
+fastapi>=0.104.0,<0.111.0
+uvicorn[standard]>=0.24.0,<0.30.0
+websockets>=11.0.0,<13.0.0
+python-multipart>=0.0.6
 
 # HTTP and Network
-httpx==0.25.0
-aiohttp==3.9.0
-aiofiles==23.2.0
-requests==2.31.0
+httpx>=0.25.0,<0.28.0
+aiohttp>=3.8.0,<4.0.0
+aiofiles>=23.1.0,<24.0.0
+requests>=2.28.0,<3.0.0
 
-# Audio Processing
-torch>=2.0.0
-torchaudio>=2.0.0
-numpy>=1.24.0
-scipy>=1.10.0
-soundfile>=0.12.0
-librosa>=0.10.0
+# Audio Processing Core
+torch>=2.0.0,<2.4.0
+torchaudio>=2.0.0,<2.4.0
+numpy>=1.21.0,<2.0.0
+scipy>=1.9.0,<2.0.0
+soundfile>=0.12.0,<0.13.0
+librosa>=0.10.0,<0.11.0
 
-# Data Processing
-pydantic>=2.0.0
-python-multipart==0.0.6
+# Data Processing and Validation
+pydantic>=2.0.0,<3.0.0
+pydantic-settings>=2.0.0,<3.0.0
 
-# Utilities
-python-dotenv==1.0.0
-pyyaml>=6.0
-click>=8.0.0
+# Configuration and Environment
+python-dotenv>=0.19.0,<2.0.0
+pyyaml>=6.0,<7.0.0
+click>=8.0.0,<9.0.0
 
-# Performance and Monitoring
-psutil>=5.9.0
-prometheus-client>=0.17.0
+# Text Processing (for CosyVoice)
+transformers>=4.30.0,<5.0.0
+tokenizers>=0.13.0,<0.20.0
 
-# Optional Audio Format Support
-pydub>=0.25.0
+# Audio Format Support
+pydub>=0.25.0,<0.26.0
+wave  # Built-in Python module
+audioop  # Built-in Python module for audio operations
 
-# Development and Testing (optional)
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-black>=23.0.0
-flake8>=6.0.0
+# Performance and System Monitoring
+psutil>=5.8.0,<6.0.0
 
-# GPU Support (optional, install based on system)
-# torch-audio # for GPU acceleration
-# nvidia-ml-py3 # for NVIDIA GPU monitoring
+# Optional: Prometheus monitoring
+prometheus-client>=0.17.0,<0.21.0
+
+# Development Tools (comment out for production)
+# pytest>=7.4.0,<8.0.0
+# pytest-asyncio>=0.21.0,<0.24.0
+# black>=23.0.0,<25.0.0
+# flake8>=6.0.0,<8.0.0
+
+# WeTextProcessing (for CosyVoice Chinese text normalization)
+WeTextProcessing>=1.0.0
+
+# ModelScope (for model downloading)
+modelscope>=1.9.0,<2.0.0
+
+# Additional Audio Libraries
+kaldiio>=2.17.0,<3.0.0
+mat73>=0.58,<1.0.0
+
+# ONNX Runtime (optional, for optimization)
+# onnxruntime>=1.15.0,<2.0.0  # CPU version
+# onnxruntime-gpu>=1.15.0,<2.0.0  # GPU version (uncomment if using GPU)
+
+# GPU Support Detection
+# nvidia-ml-py3>=7.352.0  # Uncomment for NVIDIA GPU monitoring
+
+# Memory optimization
+memory-profiler>=0.60.0,<1.0.0
+
+# Async support
+asyncio-mqtt>=0.11.0,<1.0.0
+
+# For cross-platform compatibility
+wheel>=0.37.0
+setuptools>=65.0.0
